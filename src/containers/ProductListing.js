@@ -23,7 +23,9 @@ const ProductListing = () => {
   console.log("Products :", products);
   return (
     <div className="ui grid container">
-      <ProductComponent />
+      {
+        products.map(product => <ProductComponent key={product.id} product={product}/>)
+      }
     </div>
   );
 };
