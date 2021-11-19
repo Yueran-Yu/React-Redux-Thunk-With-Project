@@ -1,10 +1,10 @@
 import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchProducts, setProducts} from "../redux/actions/productsActions";
+import {fetchProducts} from "../redux/actions/productsActions";
 import ProductComponent from "./ProductComponent";
 
 const ProductListing = () => {
-  const products = useSelector((state) => state.allProducts.products);
+  const products = useSelector(state => state);
   const dispatch = useDispatch();
 
   // const fetchProducts = async () => {
@@ -23,9 +23,8 @@ const ProductListing = () => {
   console.log("Products :", products);
   return (
     <div className="ui grid container">
-      {
-        products.map(product => <ProductComponent key={product.id} product={product}/>)
-      }
+      <ProductComponent/>
+
     </div>
   );
 };
